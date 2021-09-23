@@ -19,7 +19,7 @@ class Home extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.blue[400],
       ),
-      body: Center(
+      body: Container(
         // child: Text(
         //   "Hey Judes",
         //   style: TextStyle(
@@ -44,12 +44,38 @@ class Home extends StatelessWidget {
         //     print('clicked man clicked.');
         //   },
         // ),
-        child: IconButton(
-          icon: Icon(Icons.mail),
-          onPressed: () {
-            print('clicked man clicked.');
-          },
-          color: Colors.red[300],
+
+        // child: IconButton(
+        //   icon: Icon(Icons.mail),
+        //   onPressed: () {
+        //     print('clicked man clicked.');
+        //   },
+        //   color: Colors.red[300],
+        // ),
+
+        //container ko properties
+        // color: AppTheme.primaryColor,
+        // padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+        // margin: EdgeInsets.all(20),
+
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            IconButton(
+              icon: Icon(Icons.mail),
+              onPressed: () {
+                print('clicked man clicked.');
+              },
+              color: Colors.red[300],
+            ),
+            Text("Yoyo"),
+            Container(
+              color: Colors.cyan,
+              padding: EdgeInsets.all(30.0),
+              child: Text("Ho ho"),
+            )
+          ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
