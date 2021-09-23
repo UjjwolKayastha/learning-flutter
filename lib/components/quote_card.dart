@@ -8,10 +8,12 @@ class QuoteCard extends StatelessWidget {
     Key? key,
     required this.context,
     required this.quote,
+    required this.delete,
   }) : super(key: key);
 
   final BuildContext context;
   final Quote quote;
+  final void Function() delete; //final VoidCallback delete;
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +37,23 @@ class QuoteCard extends StatelessWidget {
             Text(
               quote.author,
               style: TextStyle(fontSize: 18.0, color: Colors.grey[800]),
-            )
+            ),
+            SizedBox(
+              height: 8.0,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                IconButton(
+                  onPressed: delete,
+                  icon: Icon(
+                    Icons.delete,
+                    color: Colors.red,
+                    size: 25.0,
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),

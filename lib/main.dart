@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:learnflutter/components/QuoteCard.dart';
+import 'package:learnflutter/components/quote_card.dart';
 import 'package:learnflutter/quote.dart';
 import 'package:learnflutter/utils/theme.dart';
 
@@ -352,9 +352,14 @@ class _QuoteListState extends State<QuoteList> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: quotes
               .map((quote) => QuoteCard(
-                      context: context,
-                      quote:
-                          quote) // using quote template component -> convert to stateless widget (auto) extracting widget
+                        context: context,
+                        quote: quote,
+                        delete: () {
+                          setState(() {
+                            quotes.remove(quote);
+                          });
+                        },
+                      ) // using quote template component -> convert to stateless widget (auto) extracting widget
                   // Text(
                   //   '${quote.quote} - ${quote.author}', //if we introduce object we need to wrap with curly braces
                   //   style: Theme.of(context)
