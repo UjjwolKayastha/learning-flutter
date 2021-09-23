@@ -1,14 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:learnflutter/components/loading.dart';
 import 'package:learnflutter/components/quote_card.dart';
+import 'package:learnflutter/pages/choose_location.dart';
+import 'package:learnflutter/pages/world_time_home.dart';
 import 'package:learnflutter/quote.dart';
 import 'package:learnflutter/utils/theme.dart';
 
 void main() {
   runApp(MaterialApp(
-    theme: appTheme(),
-    // home: Home(),
-    home: QuoteList(),
-  ));
+      theme: appTheme(),
+      // home: Home(),
+      // home: QuoteList(), // quotes app
+      // home: WorldTimeHome(),
+      initialRoute: "/home", //overriding the root route
+      routes: {
+        '/': (context) => Loading(),
+        '/home': (context) => WorldTimeHome(),
+        '/location': (context) => ChooseLocation()
+      }));
 }
 
 class Home extends StatefulWidget {
@@ -317,6 +326,7 @@ class _HomeState extends State<Home> {
 //   }
 // }
 
+//Quotes app
 class QuoteList extends StatefulWidget {
   const QuoteList({Key? key}) : super(key: key);
 
