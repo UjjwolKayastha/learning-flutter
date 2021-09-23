@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:learnflutter/quote.dart';
 import 'package:learnflutter/utils/theme.dart';
 
 void main() {
@@ -323,10 +324,16 @@ class QuoteList extends StatefulWidget {
 }
 
 class _QuoteListState extends State<QuoteList> {
-  List<String> quotes = [
-    'Be yourself; everyone else is already taken.',
-    'I have nothing to declare except my genius.',
-    'The truth is rarely pure and never simple.'
+  // List<String> quotes = [
+  //   'Be yourself; everyone else is already taken.',
+  //   'I have nothing to declare except my genius.',
+  //   'The truth is rarely pure and never simple.'
+  // ];
+
+  List<Quote> quotes = [
+    Quote(quote: "YO YO YO YO YO", author: "AL"),
+    Quote(quote: "HO HO YO", author: "UJJWOL"),
+    Quote(quote: "YO HO HO YO", author: "KAYASTHA")
   ];
 
   @override
@@ -338,13 +345,20 @@ class _QuoteListState extends State<QuoteList> {
         title: Text("Awesome Quotes"),
         backgroundColor: Colors.redAccent,
       ),
-      body: Column(
-        children: quotes
-            .map((quote) => Text(
-                  quote,
-                  style: TextStyle(color: AppTheme.completeBlack, fontSize: 20),
-                ))
-            .toList(),
+      body: Container(
+        padding: EdgeInsets.fromLTRB(20, 20, 20, 0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: quotes
+              .map((quote) => Text(
+                    '${quote.quote} - ${quote.author}',
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyText1!
+                        .copyWith(color: AppTheme.primaryColor, fontSize: 30),
+                  ))
+              .toList(),
+        ),
       ),
     );
   }
