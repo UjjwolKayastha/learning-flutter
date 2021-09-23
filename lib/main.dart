@@ -12,7 +12,7 @@ void main() {
       // home: Home(),
       // home: QuoteList(), // quotes app
       // home: WorldTimeHome(),
-      initialRoute: "/home", //overriding the root route
+      initialRoute: "/", //overriding the root route
       routes: {
         '/': (context) => Loading(),
         '/home': (context) => WorldTimeHome(),
