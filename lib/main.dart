@@ -8,8 +8,15 @@ void main() {
   ));
 }
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
+
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  int rating = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -136,9 +143,32 @@ class Home extends StatelessWidget {
                             fontSize: 20),
                       ),
                     ],
-                  )
+                  ),
                 ],
-              )
+              ),
+              SizedBox(height: 30.0),
+              Container(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.star_outline,
+                      color: Colors.white,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                      child: Text(
+                        '$rating',
+                        style: TextStyle(
+                          fontSize: 25,
+                          color: Colors.amber,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
             ],
           )
 
@@ -231,14 +261,55 @@ class Home extends StatelessWidget {
           //   ],
           // ),
           ),
-      floatingActionButton: FloatingActionButton(
-        child: Text(
-          "Click",
-          style: Theme.of(context).textTheme.bodyText1,
+      floatingActionButton: Container(
+        padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            FloatingActionButton(
+              child: IconButton(
+                icon: Icon(Icons.star_rate_outlined),
+                onPressed: () {
+                  setState(() {
+                    rating -= 1;
+                  });
+                },
+              ),
+              onPressed: () => {},
+              backgroundColor: Colors.red[400],
+            ),
+            FloatingActionButton(
+              child: IconButton(
+                icon: Icon(Icons.star_rate_outlined),
+                onPressed: () {
+                  setState(() {
+                    rating += 1;
+                  });
+                },
+              ),
+              onPressed: () => {},
+              backgroundColor: Colors.blue[400],
+            ),
+          ],
         ),
-        onPressed: () => {},
-        backgroundColor: Colors.blue[400],
       ),
     );
   }
 }
+
+// class Test extends StatefulWidget {
+//   const Test({Key? key}) : super(key: key);
+
+//   @override
+//   _TestState createState() => _TestState();
+// }
+
+// //state object for stateful widget
+// class _TestState extends State<Test> {
+//   int counter = 1;
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container();
+//   }
+// }
