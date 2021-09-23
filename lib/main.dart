@@ -63,7 +63,7 @@ class Home extends StatelessWidget {
                 children: [
                   Icon(
                     Icons.mail,
-                    color: Colors.amber,
+                    color: Colors.white,
                   ),
                   SizedBox(
                     width: 10.0,
@@ -86,6 +86,58 @@ class Home extends StatelessWidget {
                   backgroundImage: AssetImage('assets/images/heyjude.jpeg'),
                   radius: 100,
                 ),
+              ),
+              SizedBox(height: 30.0),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.album,
+                        color: Colors.white,
+                      ),
+                      SizedBox(
+                        width: 10.0,
+                      ),
+                      Text(
+                        "Hey Jude",
+                        style: TextStyle(
+                            color: Colors.amber,
+                            letterSpacing: 1.0,
+                            fontSize: 20),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.calendar_today,
+                        color: Colors.white,
+                      ),
+                      SizedBox(
+                        width: 10.0,
+                      ),
+                      Text(
+                        "Release Year",
+                        style: TextStyle(
+                            color: Colors.amber,
+                            letterSpacing: 1.0,
+                            fontSize: 20),
+                      ),
+                      SizedBox(
+                        width: 10.0,
+                      ),
+                      Text(
+                        "1968",
+                        style: TextStyle(
+                            color: Colors.amber,
+                            letterSpacing: 1.0,
+                            fontSize: 20),
+                      ),
+                    ],
+                  )
+                ],
               )
             ],
           )
