@@ -58,23 +58,48 @@ class Home extends StatelessWidget {
         // padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         // margin: EdgeInsets.all(20),
 
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            IconButton(
-              icon: Icon(Icons.mail),
-              onPressed: () {
-                print('clicked man clicked.');
-              },
-              color: Colors.red[300],
+        // child: Row(
+        //   mainAxisAlignment: MainAxisAlignment.spaceBetween,  //row ma main axis is row
+        //   crossAxisAlignment: CrossAxisAlignment.start,
+        //   children: <Widget>[
+        //     IconButton(
+        //       icon: Icon(Icons.mail),
+        //       onPressed: () {
+        //         print('clicked man clicked.');
+        //       },
+        //       color: Colors.red[300],
+        //     ),
+        //     Text("Yoyo"),
+        //     Container(
+        //       color: Colors.cyan,
+        //       padding: EdgeInsets.all(30.0),
+        //       child: Text("Ho ho"),
+        //     )
+        //   ],
+        // ),
+
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            Row(
+              mainAxisAlignment:
+                  MainAxisAlignment.spaceBetween, //row ma main axis is row
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [Text("Hello"), Text("BRO")],
             ),
-            Text("Yoyo"),
             Container(
-              color: Colors.cyan,
-              padding: EdgeInsets.all(30.0),
-              child: Text("Ho ho"),
-            )
+                padding: EdgeInsets.all(20.0),
+                child: Text("1"),
+                color: Colors.amber),
+            Container(
+                padding: EdgeInsets.all(30.0),
+                child: Text("2"),
+                color: Colors.cyan),
+            Container(
+                padding: EdgeInsets.all(40.0),
+                child: Text("3"),
+                color: Colors.redAccent),
           ],
         ),
       ),
