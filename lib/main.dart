@@ -36,7 +36,21 @@ class Home extends StatelessWidget {
         // child: Image(
         //   image: AssetImage('assets/images/27.jpeg'),
         // ),
-        child: Icon(Icons.airport_shuttle, color: AppTheme.completeBlack),
+        // child: Icon(Icons.airport_shuttle, color: AppTheme.completeBlack),
+        // child: ElevatedButton.icon(
+        //   icon: Icon(Icons.mail),
+        //   label: Text("Mail"),
+        //   onPressed: () {
+        //     print('clicked man clicked.');
+        //   },
+        // ),
+        child: IconButton(
+          icon: Icon(Icons.mail),
+          onPressed: () {
+            print('clicked man clicked.');
+          },
+          color: Colors.red[300],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         child: Text(
