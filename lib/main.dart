@@ -89,17 +89,23 @@ class Home extends StatelessWidget {
               children: [Text("Hello"), Text("BRO")],
             ),
             Container(
-                padding: EdgeInsets.all(20.0),
-                child: Text("1"),
-                color: Colors.amber),
-            Container(
                 padding: EdgeInsets.all(30.0),
                 child: Text("2"),
                 color: Colors.cyan),
-            Container(
-                padding: EdgeInsets.all(40.0),
-                child: Text("3"),
-                color: Colors.redAccent),
+            Expanded(
+              flex: 2,
+              child: Container(
+                  padding: EdgeInsets.all(40.0),
+                  child: Text("3"),
+                  color: Colors.redAccent),
+            ),
+            Expanded(
+              flex: 3,
+              child: Container(
+                  padding: EdgeInsets.all(20.0),
+                  child: Text("1"),
+                  color: Colors.amber),
+            ),
           ],
         ),
       ),
