@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:learnflutter/services/world_time_service.dart';
 
 class Loading extends StatefulWidget {
@@ -53,11 +54,18 @@ class _LoadingState extends State<Loading> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: EdgeInsets.all(50),
-        child: Text(
-          "loading",
-          style: TextStyle(fontSize: 30),
+      // body: Padding(
+      //   padding: EdgeInsets.all(50),
+      //   child: Text(
+      //     "loading",
+      //     style: TextStyle(fontSize: 30),
+      //   ),
+      // ),
+      backgroundColor: Colors.blue[900],
+      body: Center(
+        child: SpinKitCubeGrid(
+          color: Colors.white,
+          size: 80.0,
         ),
       ),
     );
