@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
+import 'package:intl/intl.dart';
 
 class WorldTimeService {
   late String location; // location name for UI
@@ -35,10 +36,11 @@ class WorldTimeService {
           hours: int.parse(offsetHours), minutes: int.parse(offsetMinutes)));
       // print({now, "0"});
 
-      time = now.toString();
+      time = DateFormat.jm().format(now);
       // print({now, "1"});
     } catch (e) {
       print("CAUGHTHHTHT: $e");
+      time = "Couldn't get the world time data.";
     }
   }
 }

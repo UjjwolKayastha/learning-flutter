@@ -18,20 +18,26 @@ class _LoadingState extends State<Loading> {
   //   print(data["title"]);
   // }
 
-  String time = "loading";
+  // String time = "loading";
 
   void setupWorldTime() async {
-    WorldTimeService worldTimeSerivce = WorldTimeService(
-      location: "Berlin",
+    WorldTimeService worldTimeService = WorldTimeService(
+      location: "Banepa",
       flag: "/assets/images/27.jpeg",
       url: "Asia/Kathmandu",
     );
 
-    await worldTimeSerivce.getTime();
+    await worldTimeService.getTime();
     // print(worldTimeSerivce.time);
-    setState(() {
-      time = worldTimeSerivce.time;
-    });
+    // setState(() {
+    //   time = worldTimeService.time;
+    // });
+
+    Navigator.pushReplacementNamed(context, "/home", arguments: {
+      "location": worldTimeService.location,
+      "time": worldTimeService.time,
+      "flag": worldTimeService.flag
+    }); //doesnt stack
   }
 
   @override
@@ -50,7 +56,7 @@ class _LoadingState extends State<Loading> {
       body: Padding(
         padding: EdgeInsets.all(50),
         child: Text(
-          time,
+          "loading",
           style: TextStyle(fontSize: 30),
         ),
       ),
