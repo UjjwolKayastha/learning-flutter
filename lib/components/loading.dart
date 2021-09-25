@@ -37,7 +37,8 @@ class _LoadingState extends State<Loading> {
     Navigator.pushReplacementNamed(context, "/home", arguments: {
       "location": worldTimeService.location,
       "time": worldTimeService.time,
-      "flag": worldTimeService.flag
+      "flag": worldTimeService.flag,
+      "isDayTime": worldTimeService.isDayTime,
     }); //doesnt stack
   }
 
