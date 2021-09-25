@@ -78,6 +78,13 @@ class _WorldTimeHomeState extends State<WorldTimeHome> {
                         color: Colors.white,
                       ),
                     ),
+                    SizedBox(
+                      width: 30.0,
+                    ),
+                    CircleAvatar(
+                      backgroundImage:
+                          AssetImage("assets/images/${data["flag"]}"),
+                    ),
                   ],
                 ),
                 SizedBox(
