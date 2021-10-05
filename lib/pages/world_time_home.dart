@@ -26,14 +26,14 @@ class _WorldTimeHomeState extends State<WorldTimeHome> {
 
     return Scaffold(
       backgroundColor: bgColor,
-      body: SafeArea(
-        child: Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('assets/images/$bgImage'),
-              fit: BoxFit.cover,
-            ), //background image
-          ),
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/$bgImage'),
+            fit: BoxFit.cover,
+          ), //background image
+        ),
+        child: SafeArea(
           child: Padding(
             padding: const EdgeInsets.fromLTRB(0, 120.0, 0, 0),
             child: Column(
