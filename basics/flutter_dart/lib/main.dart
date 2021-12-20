@@ -73,57 +73,86 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-//tabbarview
+  //tabbarview
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: DefaultTabController(
-        length: 3,
-        child: Scaffold(
-          appBar: AppBar(
-            bottom: const TabBar(
-              tabs: [
-                Tab(icon: Icon(Icons.directions_car)),
-                Tab(icon: Icon(Icons.directions_transit)),
-                Tab(icon: Icon(Icons.directions_bike)),
-              ],
-            ),
-            title: const Text('Tabs Demo'),
-          ),
-          drawer: SafeArea(
-            child: Drawer(
-              child: Column(
-                children: <Widget>[
-                  ListTile(
-                    leading: const Icon(Icons.topic),
-                    title: const Text("NewTopic"),
-                    onTap: () {
-                      //Change application state
-                      // Navigator.pop(context);
-                      print("CLICKED TOPIC");
-                    },
-                  ),
-                ],
-              ),
-            ),
-          ),
-          body: TabBarView(
-            children: <Widget>[
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: const <Widget>[
-                  Icon(Icons.directions_car),
-                  Text("GOING BY CAR")
-                ],
-              ),
-              const Icon(Icons.directions_transit),
-              const Icon(Icons.directions_bike),
-            ],
+    return CustomScrollView(
+      slivers: <Widget>[
+        const SliverAppBar(
+          pinned: true,
+          expandedHeight: 150,
+          flexibleSpace: FlexibleSpaceBar(
+            title: Text("EPIC SLIVER"),
           ),
         ),
-      ),
+        SliverFixedExtentList(
+          itemExtent: 50.0,
+          delegate: SliverChildBuilderDelegate(
+            (BuildContext context, int index) {
+              return Container(
+                alignment: Alignment.center,
+                color: Colors.cyan[200],
+                child: Text("List Item $index"),
+              );
+            },
+            childCount: 20,
+          ),
+        ),
+      ],
     );
   }
+
+// //tabbarview
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       home: DefaultTabController(
+//         length: 3,
+//         child: Scaffold(
+//           appBar: AppBar(
+//             bottom: const TabBar(
+//               tabs: [
+//                 Tab(icon: Icon(Icons.directions_car)),
+//                 Tab(icon: Icon(Icons.directions_transit)),
+//                 Tab(icon: Icon(Icons.directions_bike)),
+//               ],
+//             ),
+//             title: const Text('Tabs Demo'),
+//           ),
+//           drawer: SafeArea(
+//             child: Drawer(
+//               child: Column(
+//                 children: <Widget>[
+//                   ListTile(
+//                     leading: const Icon(Icons.topic),
+//                     title: const Text("NewTopic"),
+//                     onTap: () {
+//                       //Change application state
+//                       // Navigator.pop(context);
+//                       print("CLICKED TOPIC");
+//                     },
+//                   ),
+//                 ],
+//               ),
+//             ),
+//           ),
+//           body: TabBarView(
+//             children: <Widget>[
+//               Column(
+//                 mainAxisAlignment: MainAxisAlignment.center,
+//                 children: const <Widget>[
+//                   Icon(Icons.directions_car),
+//                   Text("GOING BY CAR")
+//                 ],
+//               ),
+//               const Icon(Icons.directions_transit),
+//               const Icon(Icons.directions_bike),
+//             ],
+//           ),
+//         ),
+//       ),
+//     );
+//   }
 
   // @override
   // Widget build(BuildContext context) {
