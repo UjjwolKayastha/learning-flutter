@@ -238,6 +238,22 @@ class _MyHomePageState extends State<MyHomePage> {
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),
+      // floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      bottomNavigationBar: BottomAppBar(
+        child: Container(
+          height: 50,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: const <Widget>[
+              Icon(Icons.home),
+              Icon(Icons.ac_unit_outlined),
+              Icon(Icons.add_location),
+              Icon(Icons.airplane_ticket),
+              Icon(Icons.email_rounded),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
