@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -139,11 +140,78 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
-            Text(
-              "HELLO WORLD",
-              style: TextStyle(
-                color: Colors.pink,
-                fontSize: 20.0,
+            Listener(
+              onPointerDown: (PointerDownEvent event) {
+                // ignore: avoid_print
+                print("CLICKED");
+              },
+              onPointerHover: (PointerHoverEvent event) {
+                // ignore: avoid_print
+                print("GAYO MATHI BATATTATA");
+              },
+              child: const Text(
+                "HELLO WORLD",
+                style: TextStyle(
+                  color: Colors.pink,
+                  fontSize: 20.0,
+                ),
+              ),
+            ),
+            GestureDetector(
+              // onTap: () {
+              //   print("TAPPEPPEPD");
+              // },
+              // onDoubleTap: () {
+              //   print("DOUBLE TAPPEPPEPD");
+              // },
+              // onLongPress: () {
+              //   print("LONG PRESSED");
+              // },
+              // onLongPressUp: () {
+              //   print("LONG PRESS RELEASED");
+              // },
+              // onVerticalDragStart: (DragStartDetails details) {
+              //   print("STAETeeD DRAGGINF");
+              //   print(details);
+              // },
+              // onVerticalDragUpdate: (DragUpdateDetails details) {
+              //   print("Drag Update");
+              //   print(details.globalPosition);
+              // },
+              // onHorizontalDragStart: (DragStartDetails details) {
+              //   print("STAETeeD DRAGGINF");
+              //   print(details);
+              // },
+              // onHorizontalDragUpdate: (DragUpdateDetails details) {
+              //   print("Drag Update");
+              //   print(details.globalPosition);
+              // },
+              // onPanStart: (DragStartDetails details) {
+              //   print("STAETeeD DRAGGINF PANNNNN");
+              //   print(details);
+              // },
+              // onPanUpdate: (DragUpdateDetails details) {
+              //   print("UPdated DRAGGINF PANNNNN");
+              //   print(details);
+              // },
+              child: const SizedBox(
+                child: Center(
+                  child: Text(
+                    "Gesture Detector",
+                    style: TextStyle(fontSize: 30),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(
+              width: 200,
+              child: Center(
+                child: TextFormField(
+                  decoration: const InputDecoration(
+                    border: UnderlineInputBorder(),
+                    labelText: "Type anything",
+                  ),
+                ),
               ),
             ),
           ],
