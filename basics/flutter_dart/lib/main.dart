@@ -68,20 +68,20 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: Container(
-          width: 250.0,
-          height: 200,
-          color: Colors.amber,
-          alignment: Alignment.center,
-          child: const Text(
-            "Hello world!!!",
-            style: TextStyle(
-              color: Colors.red,
-              fontSize: 20,
-              backgroundColor: Colors.green,
+        child: Column(
+          // mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+
+          children: const <Widget>[
+            Text(
+              "HELLO WORLD",
+              style: TextStyle(
+                color: Colors.pink,
+                fontSize: 20.0,
+              ),
             ),
-            textAlign: TextAlign.center,
-          ),
+            Text("THE END OF THE WORLD!!!"),
+          ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
