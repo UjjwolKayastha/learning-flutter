@@ -68,21 +68,66 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: Stack(
-          // mainAxisAlignment: MainAxisAlignment.center,
-          // crossAxisAlignment: CrossAxisAlignment.start,
-          alignment: AlignmentDirectional.bottomEnd,
-          children: const <Widget>[
-            Text(
-              "HELLO WORLD",
-              style: TextStyle(
-                color: Colors.pink,
-                fontSize: 20.0,
+        child: Container(
+          alignment: Alignment.bottomLeft,
+          child: Align(
+            alignment: Alignment.topCenter,
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(0, 10.0, 0, 0),
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(
+                  minWidth: 30.0,
+                  minHeight: 20.0,
+                ),
+                child: const Text(
+                  "YOOUYYO!!!",
+                  style: TextStyle(
+                    color: Colors.pink,
+                    fontSize: 20.0,
+                  ),
+                ),
               ),
             ),
-            Text("YO!!"),
-          ],
+          ),
         ),
+        // child: Row(
+        //   mainAxisAlignment: MainAxisAlignment.center,
+        //   children: const <Widget>[
+        //     Padding(
+        //       padding: EdgeInsets.all(8.0),
+        //       child: Text(
+        //         "HELLO WORLD",
+        //         style: TextStyle(
+        //           color: Colors.pink,
+        //           fontSize: 20.0,
+        //         ),
+        //       ),
+        //     ),
+        //     Text("YO!!"),
+        //   ],
+        // ),
+        // child: Image(
+        //   image: NetworkImage(
+        //     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-AAoMWIxgmQr2hf3fX8l9daS0-pcQYShXjw&usqp=CAU",
+        //   ),
+        //   image: AssetImage('assets/images/batman.jpg'),
+        // ),
+        // child: Stack(
+        //   // mainAxisAlignment: MainAxisAlignment.center,
+        //   // crossAxisAlignment: CrossAxisAlignment.start,
+        //   alignment: AlignmentDirectional.bottomEnd,
+        //   children: const <Widget>[
+        //     Text(
+        //       "HELLO WORLD",
+        //       style: TextStyle(
+        //         color: Colors.pink,
+        //         fontSize: 20.0,
+        //       ),
+        //     ),
+        //     Text("YO!!"),
+        //   ],
+        // ),
+        // ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
