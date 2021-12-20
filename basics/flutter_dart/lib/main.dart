@@ -90,6 +90,23 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             title: const Text('Tabs Demo'),
           ),
+          drawer: SafeArea(
+            child: Drawer(
+              child: Column(
+                children: <Widget>[
+                  ListTile(
+                    leading: const Icon(Icons.topic),
+                    title: const Text("NewTopic"),
+                    onTap: () {
+                      //Change application state
+                      // Navigator.pop(context);
+                      print("CLICKED TOPIC");
+                    },
+                  ),
+                ],
+              ),
+            ),
+          ),
           body: TabBarView(
             children: <Widget>[
               Column(
