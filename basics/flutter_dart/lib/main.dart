@@ -90,40 +90,57 @@ class _MyHomePageState extends State<MyHomePage> {
         //     ),
         //   ),
         // ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+        // child: Row(
+        //   mainAxisAlignment: MainAxisAlignment.center,
+        //   children: const <Widget>[
+        //     Padding(
+        //       padding: EdgeInsets.all(8.0),
+        //       child: Text(
+        //         "HELLO WORLD",
+        //         style: TextStyle(
+        //           color: Colors.pink,
+        //           fontSize: 30.0,
+        //         ),
+        //       ),
+        //     ),
+        //     Baseline(
+        //       baseline: 0,
+        //       baselineType: TextBaseline.ideographic,
+        //       child: Padding(
+        //         padding: EdgeInsets.fromLTRB(0, 0, 10.0, 0),
+        //         child: Text("YO!!"),
+        //       ),
+        //     ),
+        //     Baseline(
+        //       baseline: 40,
+        //       baselineType: TextBaseline.alphabetic,
+        //       child: Text("HO HO!!"),
+        //     ),
+        //   ],
+        // ),
+        child: Column(
           children: const <Widget>[
             Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Text(
-                "HELLO WORLD",
-                style: TextStyle(
-                  color: Colors.pink,
-                  fontSize: 30.0,
+              padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
+              child: AspectRatio(
+                aspectRatio: 4 / 3,
+                child: Image(
+                  // image: NetworkImage(
+                  //   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-AAoMWIxgmQr2hf3fX8l9daS0-pcQYShXjw&usqp=CAU",
+                  // ),
+                  image: AssetImage('assets/images/batman.jpg'),
                 ),
               ),
             ),
-            Baseline(
-              baseline: 0,
-              baselineType: TextBaseline.ideographic,
-              child: Padding(
-                padding: EdgeInsets.fromLTRB(0, 0, 10.0, 0),
-                child: Text("YO!!"),
+            Text(
+              "HELLO WORLD",
+              style: TextStyle(
+                color: Colors.pink,
+                fontSize: 20.0,
               ),
-            ),
-            Baseline(
-              baseline: 40,
-              baselineType: TextBaseline.alphabetic,
-              child: Text("HO HO!!"),
             ),
           ],
         ),
-        // child: Image(
-        //   image: NetworkImage(
-        //     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-AAoMWIxgmQr2hf3fX8l9daS0-pcQYShXjw&usqp=CAU",
-        //   ),
-        //   image: AssetImage('assets/images/batman.jpg'),
-        // ),
         // child: Stack(
         //   // mainAxisAlignment: MainAxisAlignment.center,
         //   // crossAxisAlignment: CrossAxisAlignment.start,
