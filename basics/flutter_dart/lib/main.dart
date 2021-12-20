@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.blueGrey,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -240,16 +240,27 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       // floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       bottomNavigationBar: BottomAppBar(
-        child: Container(
+        color: Colors.blueGrey,
+        child: SizedBox(
           height: 50,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: const <Widget>[
-              Icon(Icons.home),
-              Icon(Icons.ac_unit_outlined),
-              Icon(Icons.add_location),
-              Icon(Icons.airplane_ticket),
-              Icon(Icons.email_rounded),
+              Icon(
+                Icons.home,
+              ),
+              Icon(
+                Icons.ac_unit_outlined,
+              ),
+              Icon(
+                Icons.add_location,
+              ),
+              Icon(
+                Icons.airplane_ticket,
+              ),
+              Icon(
+                Icons.email_rounded,
+              ),
             ],
           ),
         ),
