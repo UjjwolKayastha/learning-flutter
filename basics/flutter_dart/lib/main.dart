@@ -68,10 +68,10 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: Column(
+        child: Stack(
           // mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-
+          // crossAxisAlignment: CrossAxisAlignment.start,
+          alignment: AlignmentDirectional.bottomEnd,
           children: const <Widget>[
             Text(
               "HELLO WORLD",
@@ -80,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 fontSize: 20.0,
               ),
             ),
-            Text("THE END OF THE WORLD!!!"),
+            Text("YO!!"),
           ],
         ),
       ),
