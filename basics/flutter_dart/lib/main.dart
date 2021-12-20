@@ -73,256 +73,291 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+//tabbarview
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-        leading: IconButton(
-          onPressed: () {},
-          icon: const Icon(Icons.logout_rounded),
+    return MaterialApp(
+      home: DefaultTabController(
+        length: 3,
+        child: Scaffold(
+          appBar: AppBar(
+            bottom: const TabBar(
+              tabs: [
+                Tab(icon: Icon(Icons.directions_car)),
+                Tab(icon: Icon(Icons.directions_transit)),
+                Tab(icon: Icon(Icons.directions_bike)),
+              ],
+            ),
+            title: const Text('Tabs Demo'),
+          ),
+          body: TabBarView(
+            children: <Widget>[
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const <Widget>[
+                  Icon(Icons.directions_car),
+                  Text("GOING BY CAR")
+                ],
+              ),
+              const Icon(Icons.directions_transit),
+              const Icon(Icons.directions_bike),
+            ],
+          ),
         ),
-        actions: <Widget>[
-          const CircleAvatar(
-            backgroundImage: AssetImage("assets/images/batman.jpg"),
-          ),
-          IconButton(
-            onPressed: _callContact,
-            icon: const Icon(Icons.cabin),
-            tooltip: "Cabin Visit",
-          )
-        ],
       ),
-      body: Center(
-        // child: Container(
-        //   alignment: Alignment.bottomLeft,
-        //   child: Align(
-        //     alignment: Alignment.topCenter,
-        //     child: Padding(
-        //       padding: const EdgeInsets.fromLTRB(0, 10.0, 0, 0),
-        //       child: ConstrainedBox(
-        //         constraints: const BoxConstraints(
-        //           minWidth: 30.0,
-        //           minHeight: 20.0,
-        //         ),
-        //         child: const Text(
-        //           "YOOUYYO!!!",
-        //           style: TextStyle(
-        //             color: Colors.pink,
-        //             fontSize: 20.0,
-        //           ),
-        //         ),
-        //       ),
-        //     ),
-        //   ),
-        // ),
-        // child: Row(
-        //   mainAxisAlignment: MainAxisAlignment.center,
-        //   children: const <Widget>[
-        //     Padding(
-        //       padding: EdgeInsets.all(8.0),
-        //       child: Text(
-        //         "HELLO WORLD",
-        //         style: TextStyle(
-        //           color: Colors.pink,
-        //           fontSize: 30.0,
-        //         ),
-        //       ),
-        //     ),
-        //     Baseline(
-        //       baseline: 0,
-        //       baselineType: TextBaseline.ideographic,
-        //       child: Padding(
-        //         padding: EdgeInsets.fromLTRB(0, 0, 10.0, 0),
-        //         child: Text("YO!!"),
-        //       ),
-        //     ),
-        //     Baseline(
-        //       baseline: 40,
-        //       baselineType: TextBaseline.alphabetic,
-        //       child: Text("HO HO!!"),
-        //     ),
-        //   ],
-        // ),
-        child: Column(
-          children: <Widget>[
-            Transform(
-              // origin: const Offset(100, 100),
-              transform: Matrix4.rotationZ(0),
-              child: const SizedBox(
-                width: 200,
-                child: Padding(
-                  padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
-                  child: AspectRatio(
-                    aspectRatio: 4 / 3,
-                    child: Image(
-                      // image: NetworkImage(
-                      //   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-AAoMWIxgmQr2hf3fX8l9daS0-pcQYShXjw&usqp=CAU",
-                      // ),
-                      image: AssetImage('assets/images/batman.jpg'),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            Listener(
-              onPointerDown: (PointerDownEvent event) {
-                // ignore: avoid_print
-                print("CLICKED");
-              },
-              onPointerHover: (PointerHoverEvent event) {
-                // ignore: avoid_print
-                print("GAYO MATHI BATATTATA");
-              },
-              child: const Text(
-                "HELLO WORLD",
-                style: TextStyle(
-                  color: Colors.pink,
-                  fontSize: 20.0,
-                ),
-              ),
-            ),
-            GestureDetector(
-              // onTap: () {
-              //   print("TAPPEPPEPD");
-              // },
-              // onDoubleTap: () {
-              //   print("DOUBLE TAPPEPPEPD");
-              // },
-              // onLongPress: () {
-              //   print("LONG PRESSED");
-              // },
-              // onLongPressUp: () {
-              //   print("LONG PRESS RELEASED");
-              // },
-              // onVerticalDragStart: (DragStartDetails details) {
-              //   print("STAETeeD DRAGGINF");
-              //   print(details);
-              // },
-              // onVerticalDragUpdate: (DragUpdateDetails details) {
-              //   print("Drag Update");
-              //   print(details.globalPosition);
-              // },
-              // onHorizontalDragStart: (DragStartDetails details) {
-              //   print("STAETeeD DRAGGINF");
-              //   print(details);
-              // },
-              // onHorizontalDragUpdate: (DragUpdateDetails details) {
-              //   print("Drag Update");
-              //   print(details.globalPosition);
-              // },
-              // onPanStart: (DragStartDetails details) {
-              //   print("STAETeeD DRAGGINF PANNNNN");
-              //   print(details);
-              // },
-              // onPanUpdate: (DragUpdateDetails details) {
-              //   print("UPdated DRAGGINF PANNNNN");
-              //   print(details);
-              // },
-              child: const SizedBox(
-                child: Center(
-                  child: Text(
-                    "Gesture Detector",
-                    style: TextStyle(fontSize: 30),
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(
-              width: 200,
-              child: Center(
-                child: TextFormField(
-                  decoration: const InputDecoration(
-                    border: UnderlineInputBorder(),
-                    labelText: "Type anything",
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
-        // child: Stack(
-        //   // mainAxisAlignment: MainAxisAlignment.center,
-        //   // crossAxisAlignment: CrossAxisAlignment.start,
-        //   alignment: AlignmentDirectional.bottomEnd,
-        //   children: const <Widget>[
-        //     Text(
-        //       "HELLO WORLD",
-        //       style: TextStyle(
-        //         color: Colors.pink,
-        //         fontSize: 20.0,
-        //       ),
-        //     ),
-        //     Text("YO!!"),
-        //   ],
-        // ),
-        // ),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: "Home",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.ac_unit_outlined),
-            label: "AC",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.add_location,
-            ),
-            label: "Location",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.airplane_ticket,
-            ),
-            label: "Flight",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.email_rounded,
-            ),
-            label: "Email",
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        onTap: _itemTapped,
-      ),
-      // bottomNavigationBar: BottomAppBar(
-      //   color: Colors.blueGrey,
-      //   child: SizedBox(
-      //     height: 50,
-      //     child: Row(
-      //       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      //       children: const <Widget>[
-      //         Icon(
-      //           Icons.home,
-      //         ),
-      //         Icon(
-      //           Icons.ac_unit_outlined,
-      //         ),
-      //         Icon(
-      //           Icons.add_location,
-      //         ),
-      //         Icon(
-      //           Icons.airplane_ticket,
-      //         ),
-      //         Icon(
-      //           Icons.email_rounded,
-      //         ),
-      //       ],
-      //     ),
-      //   ),
-      // ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
-      // floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
+
+  // @override
+  // Widget build(BuildContext context) {
+  //   return Scaffold(
+  //     appBar: AppBar(
+  //       title: Text(widget.title),
+  //       leading: IconButton(
+  //         onPressed: () {},
+  //         icon: const Icon(Icons.logout_rounded),
+  //       ),
+  //       actions: <Widget>[
+  //         const CircleAvatar(
+  //           backgroundImage: AssetImage("assets/images/batman.jpg"),
+  //         ),
+  //         IconButton(
+  //           onPressed: _callContact,
+  //           icon: const Icon(Icons.cabin),
+  //           tooltip: "Cabin Visit",
+  //         )
+  //       ],
+  //     ),
+  //     body: Center(
+  //       // child: Container(
+  //       //   alignment: Alignment.bottomLeft,
+  //       //   child: Align(
+  //       //     alignment: Alignment.topCenter,
+  //       //     child: Padding(
+  //       //       padding: const EdgeInsets.fromLTRB(0, 10.0, 0, 0),
+  //       //       child: ConstrainedBox(
+  //       //         constraints: const BoxConstraints(
+  //       //           minWidth: 30.0,
+  //       //           minHeight: 20.0,
+  //       //         ),
+  //       //         child: const Text(
+  //       //           "YOOUYYO!!!",
+  //       //           style: TextStyle(
+  //       //             color: Colors.pink,
+  //       //             fontSize: 20.0,
+  //       //           ),
+  //       //         ),
+  //       //       ),
+  //       //     ),
+  //       //   ),
+  //       // ),
+  //       // child: Row(
+  //       //   mainAxisAlignment: MainAxisAlignment.center,
+  //       //   children: const <Widget>[
+  //       //     Padding(
+  //       //       padding: EdgeInsets.all(8.0),
+  //       //       child: Text(
+  //       //         "HELLO WORLD",
+  //       //         style: TextStyle(
+  //       //           color: Colors.pink,
+  //       //           fontSize: 30.0,
+  //       //         ),
+  //       //       ),
+  //       //     ),
+  //       //     Baseline(
+  //       //       baseline: 0,
+  //       //       baselineType: TextBaseline.ideographic,
+  //       //       child: Padding(
+  //       //         padding: EdgeInsets.fromLTRB(0, 0, 10.0, 0),
+  //       //         child: Text("YO!!"),
+  //       //       ),
+  //       //     ),
+  //       //     Baseline(
+  //       //       baseline: 40,
+  //       //       baselineType: TextBaseline.alphabetic,
+  //       //       child: Text("HO HO!!"),
+  //       //     ),
+  //       //   ],
+  //       // ),
+  //       child: Column(
+  //         children: <Widget>[
+  //           Transform(
+  //             // origin: const Offset(100, 100),
+  //             transform: Matrix4.rotationZ(0),
+  //             child: const SizedBox(
+  //               width: 200,
+  //               child: Padding(
+  //                 padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
+  //                 child: AspectRatio(
+  //                   aspectRatio: 4 / 3,
+  //                   child: Image(
+  //                     // image: NetworkImage(
+  //                     //   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-AAoMWIxgmQr2hf3fX8l9daS0-pcQYShXjw&usqp=CAU",
+  //                     // ),
+  //                     image: AssetImage('assets/images/batman.jpg'),
+  //                   ),
+  //                 ),
+  //               ),
+  //             ),
+  //           ),
+  //           Listener(
+  //             onPointerDown: (PointerDownEvent event) {
+  //               // ignore: avoid_print
+  //               print("CLICKED");
+  //             },
+  //             onPointerHover: (PointerHoverEvent event) {
+  //               // ignore: avoid_print
+  //               print("GAYO MATHI BATATTATA");
+  //             },
+  //             child: const Text(
+  //               "HELLO WORLD",
+  //               style: TextStyle(
+  //                 color: Colors.pink,
+  //                 fontSize: 20.0,
+  //               ),
+  //             ),
+  //           ),
+  //           GestureDetector(
+  //             // onTap: () {
+  //             //   print("TAPPEPPEPD");
+  //             // },
+  //             // onDoubleTap: () {
+  //             //   print("DOUBLE TAPPEPPEPD");
+  //             // },
+  //             // onLongPress: () {
+  //             //   print("LONG PRESSED");
+  //             // },
+  //             // onLongPressUp: () {
+  //             //   print("LONG PRESS RELEASED");
+  //             // },
+  //             // onVerticalDragStart: (DragStartDetails details) {
+  //             //   print("STAETeeD DRAGGINF");
+  //             //   print(details);
+  //             // },
+  //             // onVerticalDragUpdate: (DragUpdateDetails details) {
+  //             //   print("Drag Update");
+  //             //   print(details.globalPosition);
+  //             // },
+  //             // onHorizontalDragStart: (DragStartDetails details) {
+  //             //   print("STAETeeD DRAGGINF");
+  //             //   print(details);
+  //             // },
+  //             // onHorizontalDragUpdate: (DragUpdateDetails details) {
+  //             //   print("Drag Update");
+  //             //   print(details.globalPosition);
+  //             // },
+  //             // onPanStart: (DragStartDetails details) {
+  //             //   print("STAETeeD DRAGGINF PANNNNN");
+  //             //   print(details);
+  //             // },
+  //             // onPanUpdate: (DragUpdateDetails details) {
+  //             //   print("UPdated DRAGGINF PANNNNN");
+  //             //   print(details);
+  //             // },
+  //             child: const SizedBox(
+  //               child: Center(
+  //                 child: Text(
+  //                   "Gesture Detector",
+  //                   style: TextStyle(fontSize: 30),
+  //                 ),
+  //               ),
+  //             ),
+  //           ),
+  //           SizedBox(
+  //             width: 200,
+  //             child: Center(
+  //               child: TextFormField(
+  //                 decoration: const InputDecoration(
+  //                   border: UnderlineInputBorder(),
+  //                   labelText: "Type anything",
+  //                 ),
+  //               ),
+  //             ),
+  //           ),
+  //         ],
+  //       ),
+  //       // child: Stack(
+  //       //   // mainAxisAlignment: MainAxisAlignment.center,
+  //       //   // crossAxisAlignment: CrossAxisAlignment.start,
+  //       //   alignment: AlignmentDirectional.bottomEnd,
+  //       //   children: const <Widget>[
+  //       //     Text(
+  //       //       "HELLO WORLD",
+  //       //       style: TextStyle(
+  //       //         color: Colors.pink,
+  //       //         fontSize: 20.0,
+  //       //       ),
+  //       //     ),
+  //       //     Text("YO!!"),
+  //       //   ],
+  //       // ),
+  //       // ),
+  //     ),
+  //     bottomNavigationBar: BottomNavigationBar(
+  //       type: BottomNavigationBarType.fixed,
+  //       items: const <BottomNavigationBarItem>[
+  //         BottomNavigationBarItem(
+  //           icon: Icon(Icons.home),
+  //           label: "Home",
+  //         ),
+  //         BottomNavigationBarItem(
+  //           icon: Icon(Icons.ac_unit_outlined),
+  //           label: "AC",
+  //         ),
+  //         BottomNavigationBarItem(
+  //           icon: Icon(
+  //             Icons.add_location,
+  //           ),
+  //           label: "Location",
+  //         ),
+  //         BottomNavigationBarItem(
+  //           icon: Icon(
+  //             Icons.airplane_ticket,
+  //           ),
+  //           label: "Flight",
+  //         ),
+  //         BottomNavigationBarItem(
+  //           icon: Icon(
+  //             Icons.email_rounded,
+  //           ),
+  //           label: "Email",
+  //         ),
+  //       ],
+  //       currentIndex: _selectedIndex,
+  //       onTap: _itemTapped,
+  //     ),
+  //     // bottomNavigationBar: BottomAppBar(
+  //     //   color: Colors.blueGrey,
+  //     //   child: SizedBox(
+  //     //     height: 50,
+  //     //     child: Row(
+  //     //       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  //     //       children: const <Widget>[
+  //     //         Icon(
+  //     //           Icons.home,
+  //     //         ),
+  //     //         Icon(
+  //     //           Icons.ac_unit_outlined,
+  //     //         ),
+  //     //         Icon(
+  //     //           Icons.add_location,
+  //     //         ),
+  //     //         Icon(
+  //     //           Icons.airplane_ticket,
+  //     //         ),
+  //     //         Icon(
+  //     //           Icons.email_rounded,
+  //     //         ),
+  //     //       ],
+  //     //     ),
+  //     //   ),
+  //     // ),
+  //     floatingActionButton: FloatingActionButton(
+  //       onPressed: _incrementCounter,
+  //       tooltip: 'Increment',
+  //       child: const Icon(Icons.add),
+  //     ),
+  //     // floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+  //   );
+  // }
 }
