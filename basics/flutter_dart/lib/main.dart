@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blueGrey,
+        primarySwatch: Colors.blue,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -50,6 +50,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  int _selectedIndex = 2;
 
   void _incrementCounter() {
     setState(() {
@@ -62,11 +63,35 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _callContact() {
+    print("Calling");
+  }
+
+  void _itemTapped(int idx) {
+    setState(() {
+      _selectedIndex = idx;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        leading: IconButton(
+          onPressed: () {},
+          icon: const Icon(Icons.logout_rounded),
+        ),
+        actions: <Widget>[
+          const CircleAvatar(
+            backgroundImage: AssetImage("assets/images/batman.jpg"),
+          ),
+          IconButton(
+            onPressed: _callContact,
+            icon: const Icon(Icons.cabin),
+            tooltip: "Cabin Visit",
+          )
+        ],
       ),
       body: Center(
         // child: Container(
@@ -233,38 +258,71 @@ class _MyHomePageState extends State<MyHomePage> {
         // ),
         // ),
       ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: "Home",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.ac_unit_outlined),
+            label: "AC",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.add_location,
+            ),
+            label: "Location",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.airplane_ticket,
+            ),
+            label: "Flight",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.email_rounded,
+            ),
+            label: "Email",
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        onTap: _itemTapped,
+      ),
+      // bottomNavigationBar: BottomAppBar(
+      //   color: Colors.blueGrey,
+      //   child: SizedBox(
+      //     height: 50,
+      //     child: Row(
+      //       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      //       children: const <Widget>[
+      //         Icon(
+      //           Icons.home,
+      //         ),
+      //         Icon(
+      //           Icons.ac_unit_outlined,
+      //         ),
+      //         Icon(
+      //           Icons.add_location,
+      //         ),
+      //         Icon(
+      //           Icons.airplane_ticket,
+      //         ),
+      //         Icon(
+      //           Icons.email_rounded,
+      //         ),
+      //       ],
+      //     ),
+      //   ),
+      // ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),
       // floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
-      bottomNavigationBar: BottomAppBar(
-        color: Colors.blueGrey,
-        child: SizedBox(
-          height: 50,
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: const <Widget>[
-              Icon(
-                Icons.home,
-              ),
-              Icon(
-                Icons.ac_unit_outlined,
-              ),
-              Icon(
-                Icons.add_location,
-              ),
-              Icon(
-                Icons.airplane_ticket,
-              ),
-              Icon(
-                Icons.email_rounded,
-              ),
-            ],
-          ),
-        ),
-      ),
     );
   }
 }
